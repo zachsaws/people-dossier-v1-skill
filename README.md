@@ -1,49 +1,81 @@
 # People Dossier V1
 
-Public-source people dossier skill for Codex.
+> 一个面向 Codex 的公开来源人物尽调 Skill。  
+> 用更稳的 `source pack + normalized cache + evaluation` 路线，把人物研究从“临时搜资料”变成“可复用、可回归、可交付”的 dossier 工作流。
 
-This repository packages a reusable skill that can:
+[![GitHub Repo stars](https://img.shields.io/github/stars/zachsaws/people-dossier-v1-skill?style=flat-square)](https://github.com/zachsaws/people-dossier-v1-skill/stargazers)
+[![GitHub license](https://img.shields.io/github/license/zachsaws/people-dossier-v1-skill?style=flat-square)](https://github.com/zachsaws/people-dossier-v1-skill/blob/main/LICENSE)
+[![Codex Skill](https://img.shields.io/badge/Codex-Skill-0ea5e9?style=flat-square)](./SKILL.md)
 
-- research a founder, executive, operator, or public business figure
-- bootstrap from live search, seed URLs, source packs, or cached normalized sources
-- produce a structured dossier in `JSON + Markdown`
-- evaluate output quality with repeatable golden-set regression
+## 中文介绍
 
-The skill is designed for `skill-first` usage, not full productization.
+`people-dossier-v1` 是一个专门给 Codex 用的人物研究 Skill，目标不是做“产品壳”，而是先把研究能力本身做稳。
 
-## What You Get
+它适合这些场景：
+
+- 创始人 / 高管 / 操盘手的公开背景研究
+- 会前人物 briefing
+- BD / 投资 / 尽调前的 stakeholder mapping
+- 从零散公开来源里整理出结构化 dossier
+
+它解决的核心问题是：
+
+- 不再只靠一次性搜索结果拼长文
+- 把来源、结论、风险、缺口、后续问题拆成结构化对象
+- 支持 `live retrieval`、`seeded retrieval`、`offline-stable regression`
+- 能稳定输出 `JSON + Markdown`，并自带评测与 golden set
+
+一句话理解：
+
+> 这不是一个“帮你写人物报告的 Prompt”，而是一套“人物研究流水线 Skill”。
+
+## 核心能力
+
+- `retrieval`
+  - 支持 live search、seed URL、official domain、source pack、normalized cache
+- `entity resolution`
+  - 对人名、公司名、别名、官方域名做匹配打分
+- `structured output`
+  - 输出 `structured_report.json`、`report.md`、`search_log.json`、`run_log.json`
+- `quality evaluation`
+  - 输出 `evaluation.json`
+  - 跟踪 claim traceability、relationship noise、source quality 等指标
+- `golden set regression`
+  - 自带样例目标、source pack、cache 和汇总脚本
+
+## 仓库结构
 
 - `SKILL.md`
-  - the skill entry and workflow
+  - Skill 入口和工作流说明
 - `scripts/`
-  - retrieval, build, render, evaluate, and regression scripts
+  - 检索、构建、渲染、评测、回归脚本
 - `references/`
-  - report schema, source playbook, quality bar, section intent
+  - report schema、source playbook、quality bar、section template
 - `assets/source-packs/`
-  - reusable input packs for stable runs
+  - 可复用输入包
 - `assets/cache/`
-  - normalized source caches for offline-stable regression
+  - 离线稳定回归用的 normalized source cache
 
-## Install
+## 安装
 
-Clone this repository directly into your Codex skills directory:
+直接克隆到 Codex 技能目录：
 
 ```bash
-git clone https://github.com/<your-account>/people-dossier-v1-skill.git ~/.codex/skills/people-dossier-v1
+git clone https://github.com/zachsaws/people-dossier-v1-skill.git ~/.codex/skills/people-dossier-v1
 ```
 
-If you already cloned it elsewhere, copy the folder into `~/.codex/skills/people-dossier-v1`.
+如果你已经 clone 到别处，也可以直接把整个目录复制到 `~/.codex/skills/people-dossier-v1`。
 
-## Trigger
+## 使用方式
 
-In Codex, ask for:
+在 Codex 里可以直接说：
 
 - `Use $people-dossier-v1 to research a person from public sources`
 - `Generate a people dossier for <name>`
 
-## Quick Start
+## 快速开始
 
-### 1. Stable mode: source pack + normalized cache
+### 1. 最稳的用法：source pack + normalized cache
 
 ```bash
 python3 scripts/run_dossier.py \
@@ -58,7 +90,7 @@ python3 scripts/run_dossier.py \
   --max-pages 0
 ```
 
-### 2. Seeded live mode
+### 2. 次稳的用法：official domain + seed URL
 
 ```bash
 python3 scripts/run_dossier.py \
@@ -72,7 +104,7 @@ python3 scripts/run_dossier.py \
   --outdir runs/target-live
 ```
 
-### 3. Evaluate a run
+### 3. 评测输出质量
 
 ```bash
 python3 scripts/evaluate_dossier.py \
@@ -80,7 +112,7 @@ python3 scripts/evaluate_dossier.py \
   --output runs/guan-demo/evaluation.json
 ```
 
-### 4. Run the bundled golden set
+### 4. 跑自带 golden set
 
 ```bash
 python3 scripts/run_golden_set.py \
@@ -88,9 +120,9 @@ python3 scripts/run_golden_set.py \
   --outdir runs/golden-set
 ```
 
-## Outputs
+## 输出内容
 
-Each run writes:
+每次运行会产出：
 
 - `raw_sources.json`
 - `normalized_sources.json`
@@ -99,23 +131,28 @@ Each run writes:
 - `structured_report.json`
 - `report.md`
 - `run_log.json`
-- optional `evaluation.json`
+- 可选 `evaluation.json`
 
-## Create a New Target Pack
+## 新建一个目标包
 
-Use [`assets/source-packs/template.json`](assets/source-packs/template.json) as the starting point for a new person.
+可以直接从 [`assets/source-packs/template.json`](assets/source-packs/template.json) 开始改。
 
-## Safety / Scope
+## 适用边界
 
-- public-source only
-- no private or protected data
-- no employment, legal, or compliance decisions without independent formal verification
+- 仅限公开来源
+- 不碰私有或受保护数据
+- 不适合作为法律、合规、雇佣决策的唯一依据
 
-## Notes
+## 注意
 
-- The most reliable path is `source pack + normalized cache`.
-- Pure live search depends on public search engines and is inherently less stable.
-- The skill uses only the Python standard library.
+- 最可靠的路径是 `source pack + normalized cache`
+- 纯 live search 依赖公开搜索引擎，天然不稳定
+- 当前脚本只依赖 Python 标准库
+- 当前仓库提供的是 `skill-first` 方案，不是完整对外产品
+
+## English
+
+`people-dossier-v1` is a Codex skill for public-source people intelligence. It turns ad-hoc person research into a repeatable pipeline with retrieval, entity scoring, structured dossier output, evaluation, and golden-set regression.
 
 ## License
 
