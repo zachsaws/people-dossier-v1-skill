@@ -1,33 +1,174 @@
 # People Dossier V1
 
 > 一个面向 Codex 的公开来源人物尽调 Skill。  
-> 用更稳的 `source pack + normalized cache + evaluation` 路线，把人物研究从“临时搜资料”变成“可复用、可回归、可交付”的 dossier 工作流。
+> 把“临时搜网页”升级成“可复用、可回归、可交付”的 `people dossier` 工作流。
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/zachsaws/people-dossier-v1-skill?style=flat-square)](https://github.com/zachsaws/people-dossier-v1-skill/stargazers)
 [![GitHub license](https://img.shields.io/github/license/zachsaws/people-dossier-v1-skill?style=flat-square)](https://github.com/zachsaws/people-dossier-v1-skill/blob/main/LICENSE)
 [![Codex Skill](https://img.shields.io/badge/Codex-Skill-0ea5e9?style=flat-square)](./SKILL.md)
 
-## 中文介绍
+如果你经常需要：
 
-`people-dossier-v1` 是一个专门给 Codex 用的人物研究 Skill，目标不是做“产品壳”，而是先把研究能力本身做稳。
+- 快速了解一个创始人 / 高管 / 操盘手
+- 在会前做人物 briefing
+- 给 BD / 投资 / 尽调准备一份结构化人物档案
+- 把零散公开信息整理成可以复盘、可以继续追踪的 dossier
 
-它适合这些场景：
+那这个 Skill 就是为这个问题做的。
 
-- 创始人 / 高管 / 操盘手的公开背景研究
-- 会前人物 briefing
-- BD / 投资 / 尽调前的 stakeholder mapping
-- 从零散公开来源里整理出结构化 dossier
+## 它到底是什么
 
-它解决的核心问题是：
+`people-dossier-v1` 不是一个“帮你写人物报告的 Prompt”。
 
-- 不再只靠一次性搜索结果拼长文
-- 把来源、结论、风险、缺口、后续问题拆成结构化对象
-- 支持 `live retrieval`、`seeded retrieval`、`offline-stable regression`
-- 能稳定输出 `JSON + Markdown`，并自带评测与 golden set
+它更接近一条稳定的研究流水线：
 
-一句话理解：
+`target input -> retrieval -> entity resolution -> claims -> report -> evaluation`
 
-> 这不是一个“帮你写人物报告的 Prompt”，而是一套“人物研究流水线 Skill”。
+相比一次性 prompt，它更适合长期使用，因为它：
+
+- 有明确输入
+  - `name / company / role / source pack / cache`
+- 有结构化输出
+  - `structured_report.json + report.md + evaluation.json`
+- 有可评测质量
+  - claim traceability、relationship noise、source quality
+- 有可回归基准
+  - golden set、source pack、normalized cache
+
+## 为什么值得 star
+
+这个仓库最有价值的地方，不是“会写一篇人物报告”，而是把人物研究拆成了可复用组件：
+
+- `source pack`
+  - 让同一类目标可以稳定复跑
+- `normalized cache`
+  - 避免每次都受搜索引擎状态影响
+- `evaluation`
+  - 不是只看“像不像”，而是看“能不能追溯”
+- `golden set regression`
+  - 改了 heuristics 以后还能知道质量有没有退
+
+一句话说：
+
+> 这是一个适合长期积累的人物研究 Skill，而不是一个一次性演示脚本。
+
+## Example Output
+
+运行后你会拿到的不是一篇散文，而是一组可复用研究产物：
+
+```json
+{
+  "meta": {
+    "name": "管明尧",
+    "company": "智身科技",
+    "role": "CEO"
+  },
+  "executive_summary": [
+    "官网将公司定位为具身智能全产业链技术服务商。",
+    "公开来源显示目标与公司存在强绑定关系。"
+  ],
+  "source_register": [
+    {
+      "tier": "tier1",
+      "name": "爱企查",
+      "kind": "registry"
+    },
+    {
+      "tier": "tier1",
+      "name": "zsibot.com",
+      "kind": "official"
+    }
+  ],
+  "research_backlog": [
+    {
+      "question": "继续核实公开履历、控制权与风险信号"
+    }
+  ]
+}
+```
+
+同时还会生成：
+
+- `raw_sources.json`
+- `normalized_sources.json`
+- `search_log.json`
+- `research_notes.md`
+- `structured_report.json`
+- `report.md`
+- `run_log.json`
+- 可选 `evaluation.json`
+
+## 30 秒安装
+
+```bash
+git clone https://github.com/zachsaws/people-dossier-v1-skill.git ~/.codex/skills/people-dossier-v1
+```
+
+如果你已经 clone 到别处，也可以直接把整个目录复制到 `~/.codex/skills/people-dossier-v1`。
+
+## 最推荐的使用方式
+
+### 1. 稳定模式：source pack + normalized cache
+
+这是最推荐的路径，也是最接近“可复用 skill”的方式。
+
+```bash
+python3 scripts/run_dossier.py \
+  --name "管明尧" \
+  --company "智身科技" \
+  --role "CEO" \
+  --research-goal "Validate public-source identity binding and company control signals." \
+  --seed-file assets/source-packs/sparse-signal-operator.json \
+  --reuse-normalized assets/cache/sparse-signal-operator.normalized.json \
+  --outdir runs/guan-demo \
+  --max-results-per-query 0 \
+  --max-pages 0
+```
+
+### 2. Live 模式：official domain + seed URL
+
+当你没有现成 cache 时，可以这样跑：
+
+```bash
+python3 scripts/run_dossier.py \
+  --name "Target Name" \
+  --company "Company Name" \
+  --role "CEO" \
+  --research-goal "Generate a public-source dossier." \
+  --company-domain "company.com" \
+  --seed-url "https://company.com/" \
+  --seed-url "https://registry-or-media-page" \
+  --outdir runs/target-live
+```
+
+### 3. 评测结果质量
+
+```bash
+python3 scripts/evaluate_dossier.py \
+  runs/guan-demo/structured_report.json \
+  --output runs/guan-demo/evaluation.json
+```
+
+### 4. 跑自带 golden set
+
+```bash
+python3 scripts/run_golden_set.py \
+  --targets assets/golden-set-targets.json \
+  --outdir runs/golden-set
+```
+
+## 适合谁
+
+- 经常要做人物背景研究的人
+- 想把“搜网页 + 写结论”变成结构化流程的人
+- 想给 Codex 加一个稳定研究 Skill 的人
+- 想积累 source pack / cache / evaluation 资产的人
+
+## 不适合谁
+
+- 想直接要一个完整 SaaS 产品的人
+- 只想要一个单轮 prompt 的人
+- 需要私有数据、受保护数据、或合规敏感调查的人
 
 ## 核心能力
 
@@ -56,88 +197,11 @@
 - `assets/cache/`
   - 离线稳定回归用的 normalized source cache
 
-## 安装
-
-直接克隆到 Codex 技能目录：
-
-```bash
-git clone https://github.com/zachsaws/people-dossier-v1-skill.git ~/.codex/skills/people-dossier-v1
-```
-
-如果你已经 clone 到别处，也可以直接把整个目录复制到 `~/.codex/skills/people-dossier-v1`。
-
-## 使用方式
-
-在 Codex 里可以直接说：
-
-- `Use $people-dossier-v1 to research a person from public sources`
-- `Generate a people dossier for <name>`
-
-## 快速开始
-
-### 1. 最稳的用法：source pack + normalized cache
-
-```bash
-python3 scripts/run_dossier.py \
-  --name "管明尧" \
-  --company "智身科技" \
-  --role "CEO" \
-  --research-goal "Validate public-source identity binding and company control signals." \
-  --seed-file assets/source-packs/sparse-signal-operator.json \
-  --reuse-normalized assets/cache/sparse-signal-operator.normalized.json \
-  --outdir runs/guan-demo \
-  --max-results-per-query 0 \
-  --max-pages 0
-```
-
-### 2. 次稳的用法：official domain + seed URL
-
-```bash
-python3 scripts/run_dossier.py \
-  --name "Target Name" \
-  --company "Company Name" \
-  --role "CEO" \
-  --research-goal "Generate a public-source dossier." \
-  --company-domain "company.com" \
-  --seed-url "https://company.com/" \
-  --seed-url "https://registry-or-media-page" \
-  --outdir runs/target-live
-```
-
-### 3. 评测输出质量
-
-```bash
-python3 scripts/evaluate_dossier.py \
-  runs/guan-demo/structured_report.json \
-  --output runs/guan-demo/evaluation.json
-```
-
-### 4. 跑自带 golden set
-
-```bash
-python3 scripts/run_golden_set.py \
-  --targets assets/golden-set-targets.json \
-  --outdir runs/golden-set
-```
-
-## 输出内容
-
-每次运行会产出：
-
-- `raw_sources.json`
-- `normalized_sources.json`
-- `search_log.json`
-- `research_notes.md`
-- `structured_report.json`
-- `report.md`
-- `run_log.json`
-- 可选 `evaluation.json`
-
 ## 新建一个目标包
 
 可以直接从 [`assets/source-packs/template.json`](assets/source-packs/template.json) 开始改。
 
-## 适用边界
+## 边界说明
 
 - 仅限公开来源
 - 不碰私有或受保护数据
