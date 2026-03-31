@@ -1,12 +1,12 @@
 {
   "aliases": [],
-  "company_domains": ["company.com"],
+  "company_domains": ["company.example"],
   "must_answer": [
-    "Is the target strongly bound to the company?",
-    "What public-source background, control, and risk signals can be verified?"
+    "目标人物是否与目标公司强绑定",
+    "有哪些可验证的公开履历、控制权与风险信号"
   ],
   "seed_urls": [
-    "https://company.com/",
-    "https://registry-or-media-source"
+    "https://company.example/",
+    "https://news.example/target-source"
   ]
 }

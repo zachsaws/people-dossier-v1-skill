@@ -1,11 +1,11 @@
 {
-  "company_domains": ["zsibot.com"],
+  "company_domains": ["industry-example.ai"],
   "must_answer": [
-    "管明尧是否与智身科技强绑定",
+    "示例负责人C是否与示例智能硬件公司强绑定",
     "有哪些可验证的公开履历、控制权与风险信号"
   ],
   "seed_urls": [
-    "https://zsibot.com/",
-    "https://zsibot.com/newsinfo/8062399.html"
+    "https://industry-example.ai/",
+    "https://news.example/company-c-expansion"
   ]
 }

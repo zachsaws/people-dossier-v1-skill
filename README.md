@@ -59,8 +59,8 @@
 ```json
 {
   "meta": {
-    "name": "管明尧",
-    "company": "智身科技",
+    "name": "示例负责人C",
+    "company": "示例智能硬件公司",
     "role": "CEO"
   },
   "executive_summary": [
@@ -75,7 +75,7 @@
     },
     {
       "tier": "tier1",
-      "name": "zsibot.com",
+      "name": "industry-example.ai",
       "kind": "official"
     }
   ],
@@ -114,13 +114,13 @@ git clone https://github.com/zachsaws/people-dossier-v1-skill.git ~/.codex/skill
 
 ```bash
 python3 scripts/run_dossier.py \
-  --name "管明尧" \
-  --company "智身科技" \
+  --name "示例负责人C" \
+  --company "示例智能硬件公司" \
   --role "CEO" \
   --research-goal "Validate public-source identity binding and company control signals." \
   --seed-file assets/source-packs/sparse-signal-operator.json \
   --reuse-normalized assets/cache/sparse-signal-operator.normalized.json \
-  --outdir runs/guan-demo \
+  --outdir runs/example-demo \
   --max-results-per-query 0 \
   --max-pages 0
 ```
@@ -145,8 +145,8 @@ python3 scripts/run_dossier.py \
 
 ```bash
 python3 scripts/evaluate_dossier.py \
-  runs/guan-demo/structured_report.json \
-  --output runs/guan-demo/evaluation.json
+  runs/example-demo/structured_report.json \
+  --output runs/example-demo/evaluation.json
 ```
 
 ### 4. 跑自带 golden set

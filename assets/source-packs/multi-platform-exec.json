@@ -1,12 +1,12 @@
 {
-  "aliases": ["稚晖君"],
-  "company_domains": ["agibot.com"],
+  "aliases": ["Exec Example B"],
+  "company_domains": ["robot-example.ai"],
   "must_answer": [
-    "彭志辉是否与智元机器人强绑定",
+    "示例高管B是否与示例机器人公司强绑定",
     "公开资料如何描述其角色、技术影响力与关系网络"
   ],
   "seed_urls": [
-    "https://www.agibot.com/about/210/detail/1.html",
-    "https://jp.agibot.com/article/188/detail/27.html"
+    "https://robot-example.ai/about",
+    "https://robot-example.ai/news/product-launch"
   ]
 }
