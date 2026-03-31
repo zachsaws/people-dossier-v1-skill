@@ -1,0 +1,12 @@
+{
+  "aliases": [],
+  "company_domains": ["company.com"],
+  "must_answer": [
+    "Is the target strongly bound to the company?",
+    "What public-source background, control, and risk signals can be verified?"
+  ],
+  "seed_urls": [
+    "https://company.com/",
+    "https://registry-or-media-source"
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "People Dossier V1"
+  short_description: "Public-source people dossier generator"
+  default_prompt: "Use $people-dossier-v1 to research a person from public sources and produce a structured dossier with facts, risks, sources, and next-step questions."

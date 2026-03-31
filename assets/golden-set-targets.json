@@ -1,0 +1,38 @@
+[
+  {
+    "id": "common-name-founder",
+    "category": "常见名创始人",
+    "name": "王宁",
+    "company": "泡泡玛特",
+    "role": "董事长兼CEO",
+    "research_goal": "验证常见中文名场景下的实体消歧和 source tiering。",
+    "seed_file": "source-packs/common-name-founder.json",
+    "reuse_normalized": "cache/common-name-founder.normalized.json",
+    "max_results_per_query": 0,
+    "max_pages": 0
+  },
+  {
+    "id": "multi-platform-exec",
+    "category": "多平台足迹明显的高管",
+    "name": "彭志辉",
+    "company": "智元机器人",
+    "role": "联合创始人",
+    "research_goal": "验证 social/code/media 足迹覆盖和关系抽取。",
+    "seed_file": "source-packs/multi-platform-exec.json",
+    "reuse_normalized": "cache/multi-platform-exec.normalized.json",
+    "max_results_per_query": 0,
+    "max_pages": 0
+  },
+  {
+    "id": "sparse-signal-operator",
+    "category": "公开信息稀疏但可拼接的人物",
+    "name": "管明尧",
+    "company": "智身科技",
+    "role": "CEO",
+    "research_goal": "验证弱信号拼接、风险归纳、backlog 质量。",
+    "seed_file": "source-packs/sparse-signal-operator.json",
+    "reuse_normalized": "cache/sparse-signal-operator.normalized.json",
+    "max_results_per_query": 0,
+    "max_pages": 0
+  }
+]

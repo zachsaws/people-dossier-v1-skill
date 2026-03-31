@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.agibot.com/about/210/detail/1.html",
+    "domain": "www.agibot.com",
+    "title": "About Us - AGIBOT / 智元机器人",
+    "snippet": "智元机器人是具身智能机器人公司，公开页面显示公司成立于2023年，并由彭志辉等核心成员共同推动技术与产品路线。",
+    "tier": "tier1",
+    "kind": "official",
+    "source_name": "agibot.com",
+    "best_rank": 0,
+    "queries": ["__reused__"],
+    "query_buckets": ["seed", "company"],
+    "search_hits": 1,
+    "fetch": {
+      "status": "cached",
+      "final_url": "https://www.agibot.com/about/210/detail/1.html",
+      "content_type": "text/html; charset=utf-8",
+      "title": "About Us - AGIBOT / 智元机器人",
+      "meta_description": "AgiBot builds general-purpose embodied robots and their application ecosystems.",
+      "text_excerpt": "AGIBOT 官方页面介绍公司成立于2023年，聚焦具身智能与通用机器人。公开资料将彭志辉列为联合创始人、President、CTO，是智元机器人技术路线与对外传播的核心人物之一。",
+      "emails": [],
+      "phones": [],
+      "links": ["https://www.agibot.com/products", "https://www.agibot.com/about/210/detail/1.html"]
+    }
+  },
+  {
+    "url": "https://jp.agibot.com/article/188/detail/27.html",
+    "domain": "jp.agibot.com",
+    "title": "智元发布五款商用人形机器人 | 智元818新品发布会全程回顾",
+    "snippet": "智元官方新闻显示，彭志辉以联合创始人身份在发布会上宣布开源计划与产品路线。",
+    "tier": "tier1",
+    "kind": "official",
+    "source_name": "agibot.com",
+    "best_rank": 1,
+    "queries": ["__reused__"],
+    "query_buckets": ["company", "media"],
+    "search_hits": 1,
+    "fetch": {
+      "status": "cached",
+      "final_url": "https://jp.agibot.com/article/188/detail/27.html",
+      "content_type": "text/html; charset=utf-8",
+      "title": "智元发布五款商用人形机器人 | 智元818新品发布会全程回顾",
+      "meta_description": "智元机器人发布远征与灵犀两大家族共计五款商用人形机器人新品。",
+      "text_excerpt": "智元机器人官方新闻回顾显示，彭志辉以联合创始人身份出席发布会并宣布AimRT、灵犀X1与数据集开源计划，说明其同时承担技术与品牌传播角色。",
+      "emails": [],
+      "phones": [],
+      "links": []
+    }
+  },
+  {
+    "url": "https://www.itiger.com/news/2518328923",
+    "domain": "www.itiger.com",
+    "title": "人形机器人第二弹？华为离职“天才少年”官宣刷屏 - Tiger Brokers",
+    "snippet": "报道指出，彭志辉是智元机器人的联合创始人，其社交媒体预告能迅速带动行业关注与传播。",
+    "tier": "tier2",
+    "kind": "media",
+    "source_name": "Tiger Brokers",
+    "best_rank": 2,
+    "queries": ["__reused__"],
+    "query_buckets": ["media", "digital"],
+    "search_hits": 1,
+    "fetch": {
+      "status": "cached",
+      "final_url": "https://www.itiger.com/news/2518328923",
+      "content_type": "text/html; charset=utf-8",
+      "title": "人形机器人第二弹？华为离职“天才少年”官宣刷屏 - Tiger Brokers",
+      "meta_description": "智元机器人联合创始人彭志辉的公开发声引发行业关注。",
+      "text_excerpt": "Tiger Brokers 公开报道提到，彭志辉作为智元机器人的联合创始人，在社交媒体与视频平台拥有显著影响力，其公开动作往往直接带动新品传播与市场讨论。",
+      "emails": [],
+      "phones": [],
+      "links": []
+    }
+  }
+]

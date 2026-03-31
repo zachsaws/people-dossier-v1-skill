@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.popmart.com/",
+    "domain": "www.popmart.com",
+    "title": "POP MART | 泡泡玛特",
+    "snippet": "泡泡玛特是中国潮流玩具品牌，王宁创立并担任董事长兼CEO。",
+    "tier": "tier1",
+    "kind": "official",
+    "source_name": "popmart.com",
+    "best_rank": 0,
+    "queries": ["__reused__"],
+    "query_buckets": ["seed", "company"],
+    "search_hits": 1,
+    "fetch": {
+      "status": "cached",
+      "final_url": "https://www.popmart.com/",
+      "content_type": "text/html; charset=utf-8",
+      "title": "POP MART | 泡泡玛特",
+      "meta_description": "泡泡玛特（POP MART）是中国潮流文化娱乐品牌。",
+      "text_excerpt": "泡泡玛特（POP MART）围绕IP孵化、零售渠道与全球化运营建立业务网络。公开资料与创始人访谈显示，王宁于2010年创立泡泡玛特，目前担任董事长兼CEO，负责整体战略与全球化扩张。",
+      "emails": [],
+      "phones": [],
+      "links": ["https://www.popmart.com/us", "https://www.popmart.com/cn"]
+    }
+  },
+  {
+    "url": "https://www.forbeschina.com/entrepreneur/52854",
+    "domain": "www.forbeschina.com",
+    "title": "王宁：泡泡玛特创始人、董事长兼CEO - Forbes China",
+    "snippet": "福布斯中国将王宁列为泡泡玛特创始人、董事长兼CEO，强调其长期主导公司战略与IP运营。",
+    "tier": "tier2",
+    "kind": "media",
+    "source_name": "Forbes China",
+    "best_rank": 1,
+    "queries": ["__reused__"],
+    "query_buckets": ["media", "identity"],
+    "search_hits": 1,
+    "fetch": {
+      "status": "cached",
+      "final_url": "https://www.forbeschina.com/entrepreneur/52854",
+      "content_type": "text/html; charset=utf-8",
+      "title": "王宁：泡泡玛特创始人、董事长兼CEO - Forbes China",
+      "meta_description": "王宁创立泡泡玛特，并带领公司完成上市与全球化扩张。",
+      "text_excerpt": "Forbes China 公开资料显示，王宁是泡泡玛特创始人、董事长兼CEO。相关介绍强调其在公司上市、IP商业化和国际化扩张中的核心角色。",
+      "emails": [],
+      "phones": [],
+      "links": []
+    }
+  },
+  {
+    "url": "https://www.tmtpost.com/5393594.html",
+    "domain": "www.tmtpost.com",
+    "title": "王宁与泡泡玛特：从零售门店到潮玩品牌 - 钛媒体",
+    "snippet": "钛媒体回顾王宁创立泡泡玛特并推动其上市、扩张门店和IP业务的发展路径。",
+    "tier": "tier2",
+    "kind": "media",
+    "source_name": "钛媒体",
+    "best_rank": 2,
+    "queries": ["__reused__"],
+    "query_buckets": ["career_history", "media"],
+    "search_hits": 1,
+    "fetch": {
+      "status": "cached",
+      "final_url": "https://www.tmtpost.com/5393594.html",
+      "content_type": "text/html; charset=utf-8",
+      "title": "王宁与泡泡玛特：从零售门店到潮玩品牌 - 钛媒体",
+      "meta_description": "报道回顾泡泡玛特从零售门店发展为上市潮玩公司的过程。",
+      "text_excerpt": "钛媒体公开报道提到，王宁在创立泡泡玛特后持续推动门店扩张、IP合作和品牌出海，是泡泡玛特长期对外识别度最高的核心管理者。",
+      "emails": [],
+      "phones": [],
+      "links": []
+    }
+  }
+]

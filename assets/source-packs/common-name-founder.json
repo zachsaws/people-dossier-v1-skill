@@ -1,0 +1,12 @@
+{
+  "aliases": ["POP MART", "Pop Mart"],
+  "company_domains": ["popmart.com"],
+  "must_answer": [
+    "王宁是否与泡泡玛特强绑定",
+    "有哪些可验证的公开履历与治理信号"
+  ],
+  "seed_urls": [
+    "https://www.popmart.com/",
+    "https://www.forbeschina.com/entrepreneur/52854"
+  ]
+}
